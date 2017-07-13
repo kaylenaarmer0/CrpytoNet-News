@@ -1,18 +1,27 @@
 {
   "name": "mongoose_skeleton",
   "version": "1.0.0",
-  "description": "",
+  "description": "Website that sorts through different websites about bitcoin and ethereum and lets you save articles",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Zachary Keeshin",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "mongoose": "^4.4.6",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "rebass": "^1.0.0-6"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zkeesh/CrpytoNet-News.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zkeesh/CrpytoNet-News/issues"
   }
 }

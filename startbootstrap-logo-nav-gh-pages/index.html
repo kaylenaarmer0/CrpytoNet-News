@@ -10,6 +10,14 @@
     <meta name="author" content="">
 
     <title>CryptoNET News</title>
+    <style type="text/css">
+              input{
+        display: block;
+        font-size: 24px;
+        height: 36px;
+        margin: 5px;
+      }
+    </style>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -18,6 +26,8 @@
     <link href="css/logo-nav.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="favicon.ico" >
+
+
 
 
 </head>
@@ -52,25 +62,18 @@
                         <a href="#">Resources</a>
                     </li>
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
 
 
 
-
-    <!-- Page Content -->
-    <div class="container">
-
+       
 
 <form>
-  <input type="text" name="search" placeholder="Search.." style="
+  <input type="text" name="search" placeholder="What do you want to know about cryptocurrency?" style="
 
 input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
+    /*width: 300px;*/
+    /*width: 50%;*/
+/*    box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
@@ -80,90 +83,155 @@ input[type=text] {
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;*/
 }
 
 input[type=text]:focus {
-    width: 100%;
+    /*width: 50%;*/
 }
 
+    width: 50%;
+    margin-left: -14px;
+    width: 500px;
 
-  ">
+
+  "
+  >
 </form>
+
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
 
 
 
         <div class="row">
+
+
+
             <div class="col-sm-8" style="border-style: solid; height: 300px; margin-top: 10px;">
                 <h1>Results</h1>
 
+
+
+
+
                 <div style="    width: 550px;
-    /* background-color: orange; */
-    height: 100px;
-    margin-bottom: 10px;
-    border-style: groove;"> ARTICLE #1</div>
-                               
+                    /* background-color: orange; */
+                    height: 100px;
+                    margin-bottom: 10px;
+                    border-style: groove;"> ARTICLE #1</div>
 
-
-
-                                <div style="width: 550px;
-    /* background-color: purple; */
-    height: 100px;
-    float: left;
-    border-style: groove;"> ARTICLE #2</div>
+                <div style="width: 550px;
+                    /* background-color: purple; */
+                    height: 100px;
+                    float: left;
+                    border-style: groove;"> ARTICLE #2</div>
 <!--                 <p>Note: You may need to adjust some CSS based on the size of your logo. The default logo size is 150x50 pixels.</p> -->
+            
             </div>
-<!--             <div class="col-sm-4" style="border-style: dotted;">
-                <h1>Logo Nav by Start Bootstrap</h1>
-                <p>Note: You may need to adjust some CSS based on the size of your logo. The default logo size is 150x50 pixels.</p>
-            </div> -->
+            <div class="col-sm-4"> add a new article
+<!--                 <h1>Logo Nav by Start Bootstrap</h1>
+                <p>Note: You may need to adjust some CSS based on the size of your logo. The default logo size is 150x50 pixels.</p> -->
+  
+
+
+    <form action="/submit" method="post" style="margin-top: 10px;">
+      <input type="text" name="title" placeholder="Article Title">
+      <input type="text" name="link" placeholder="Article Link">
+      <input type="text" name="coin" placeholder="Coin">
+      <input type="text" name="image" placeholder="Image Link">
+
+      <!-- Uncomment me to show how date works-->
+      <!-- <input type="date" name="date"> -->
+
+      <input type="submit">
+    </form>
+
+
+
+            </div>
+
+
+
             <div class="col-sm-4">
+            <div class="btcwdgt-chart"></div>
+
+            <script type="text/javascript">
+crypt_multi_num_cur = "3";
+crypt_base_cur_0 = "Bitcoin (BTC)";crypt_target_cur_0 = "US Dollar (USD)";crypt_base_cur_1 = "Litecoin (LTC)";crypt_target_cur_1 = "US Dollar (USD)";crypt_base_cur_2 = "Ethereum (ETH)";crypt_target_cur_2 = "US Dollar (USD)";crypt_multi_border_width = 5;crypt_multi_display_time = false;</script>
 
 
-<script type="text/javascript">
-
-    crypt_multi_num_cur = "3";
-    crypt_base_cur_0 = "Bitcoin (BTC)";
-    crypt_target_cur_0 = "US Dollar (USD)";
-    crypt_base_cur_1 = "Litecoin (LTC)";
-    crypt_target_cur_1 = "US Dollar (USD)";
-    crypt_base_cur_2 = "Ethereum (ETH)";
-    crypt_target_cur_2 = "US Dollar (USD)";
-    crypt_multi_border_width = 5;
-
-</script>
-
-<script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/multi_widget.js"></script>
-
-<!--     <script type="text/javascript">
-
-        crypt_multi_num_cur = "3";
-        crypt_base_cur_0 = "Bitcoin (BTC)";
-        crypt_target_cur_0 = "US Dollar (USD)";
-        crypt_base_cur_1 = "Litecoin (LTC)";
-        crypt_target_cur_1 = "US Dollar (USD)";
-        crypt_base_cur_2 = "Ethereum (ETH)";
-        crypt_target_cur_2 = "US Dollar (USD)";
-        crypt_multi_display_time = false;
-
-    </script> -->
+<!--             <script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/multi_widget.js"></script> -->
 
 
-<!-- 
+
+            <script type="text/javascript">
+
+                // crypt_multi_num_cur = "3";
+                // crypt_base_cur_0 = "Bitcoin (BTC)";
+                // crypt_target_cur_0 = "US Dollar (USD)";
+                // crypt_base_cur_1 = "Litecoin (LTC)";
+                // crypt_target_cur_1 = "US Dollar (USD)";
+                // crypt_base_cur_2 = "Ethereum (ETH)";
+                // crypt_target_cur_2 = "US Dollar (USD)";
+                // crypt_multi_border_width = 5;
+
+              (function(b,i,t,C,O,I,N) {
+                window.addEventListener('load',function() {
+                  if(b.getElementById(C))return;
+                  I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+                  I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+                },false)
+              })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');
+
+            </script>
+
             <script type="text/javascript" src="https://www.cryptonator.com/ui/js/widget/multi_widget.js"></script>
- -->
-
 
             </div>
 
+            <div style="height: 200px; width: 300px;float: right;     margin: 10px;"> 
 
+            <!-- Box w/ resources links related to bitcoin (news) -->
+            <h4>resources</h4>
+
+            <p>
+                    
+            <a href="http://www.coindesk.com/">CoinDesk</a>
+
+            </p>
+
+            <p>
+                
+            <a href="https://cointelegraph.com/tags/cryptocurrencies">Coin Telegraph</a>
+
+            </p>
+
+            <p>
+                
+            <a href="https://metamask.io/"> Metamask (Ethereum Wallet) </a>
+
+            </p>
+
+            <p>      
+
+            <a href="https://www.reddit.com/r/CryptoCurrency/">Reddit</a>
+
+            </p>
+
+            </div>
 
         </div>
+
     </div>
-
-
-
-
 
 
 

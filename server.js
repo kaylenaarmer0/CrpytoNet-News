@@ -106,10 +106,6 @@ app.get("/articles", function(req, res) {
       "<h1>Second Article</h1>" +
       "<h2>Bitcoin</h1>";
       res.send(result);
-
-      // res.send("<h1>HI</h1>");
-      // res.send(JSON.stringify(doc));
-//      res.send(doc);
     }
   });
 });
