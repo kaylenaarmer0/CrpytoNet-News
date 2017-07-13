@@ -57,29 +57,8 @@ db.once("open", function() {
 // Routes
 // ======
 
-// We handle posts to our mongodb database here
-app.post("/submit", function(req, res) {
-
-  // We use the "Example" class we defined above
-  // to check our req.body against our Example model
-  var content = new Article(req.body);
-
-  // With the new Example object created, we can save our data to mongoose
-  // Notice the different syntax. The magic happens in exampleModel.js
-  content.save(function(error, doc) {
-    // Send any errors to the browser
-    if (error) {
-      res.send(error);
-    }
-    // Otherwise, send the new doc to the browser
-    else {
-      res.send(doc);
-    }
-  });
-});
-
 // This GET route let's us see the books we have added
-app.get("/articles", function(req, res) {
+app.get("/", function(req, res) {
   // Using our Book model, "find" every book in our book db
   Article.find({}, function(error, doc) {
     // Send any errors to the browser
@@ -106,6 +85,27 @@ app.get("/articles", function(req, res) {
       "<h1>Second Article</h1>" +
       "<h2>Bitcoin</h1>";
       res.send(result);
+    }
+  });
+});
+
+// We handle posts to our mongodb database here
+app.post("/submit", function(req, res) {
+
+  // We use the "Example" class we defined above
+  // to check our req.body against our Example model
+  var content = new Article(req.body);
+
+  // With the new Example object created, we can save our data to mongoose
+  // Notice the different syntax. The magic happens in exampleModel.js
+  content.save(function(error, doc) {
+    // Send any errors to the browser
+    if (error) {
+      res.send(error);
+    }
+    // Otherwise, send the new doc to the browser
+    else {
+      res.send(doc);
     }
   });
 });
