@@ -110,6 +110,25 @@ app.post("/submit", function(req, res) {
   });
 });
 
+// making a new route called "/home", which renders my homepage :)
+app.get('/home',function(req,res){
+
+    //  res.sendFile('public/admin.html');
+    //  res.sendFile(__dirname + '/public/index.html');
+
+    res.render("index.html");
+
+});
+
+
+//assuming app is express Object.
+app.get('/add',function(req,res){
+
+    //  res.sendFile('public/admin.html');
+     res.sendFile(__dirname + '/public/admin.html');
+
+});
+
 // Listen on port 3000
 app.listen(3000, function() {
   console.log("App running on port 3000!");
