@@ -12,4 +12,4 @@ Website that sorts through different websites about bitcoin and ethereum and let
 
         node server.js
 
-# Finally, visit the project at localhost:3000
+# Finally, visit the project at localhost:3000/admin.html and then localhost:3000/

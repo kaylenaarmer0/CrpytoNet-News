@@ -113,11 +113,11 @@ app.post("/submit", function(req, res) {
 // making a new route called "/home", which renders my homepage :)
 app.get('/home',function(req,res){
 
-    //  res.sendFile('public/admin.html');
-    //  res.sendFile(__dirname + '/public/index.html');
+    // express callback response by calling burger.selectAllBurger
+    Article.find({}, function(error, doc) {
+      
 
-    res.render("index.html");
-
+    });
 });
 
 
