@@ -1,10 +1,24 @@
-/* INSTRUCTOR ONLY (18.3.02)
- *
- * Show off the Mongoose Schema to class
- * ===================================== */
+
+
+
+// configure the view engine
+app.engine('hbs', hbs.express4({
+  defaultLayout: __dirname + '/views/layouts/default.hbs',
+  partialsDir: __dirname + '/views/partials',
+  layoutsDir: __dirname + '/views/layouts'
+}));
+
+// configure views path
+app.set('views', path.join(__dirname,'/views'));
 
 // Dependencies
 var express = require("express");
+
+// express-handlebars stuff
+var exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 // Our newest addition to the dependency family
@@ -32,10 +46,6 @@ app.use(bodyParser.urlencoded({
 // Static file support with public folder
 app.use(express.static("public"));
 
-
-/* MONGOOSE FUN STARTS HERE */
-/* -/-/-/-/-/-/-/-/-/-/-/-/ */
-
 // Here's how we hook mongoose with the mongodb database
 // Our database: cryptonetnews
 mongoose.connect("mongodb://localhost/cryptonetnews");
@@ -56,9 +66,10 @@ db.once("open", function() {
 
 // Routes
 // ======
-
+var result;
 // This GET route let's us see the books we have added
 app.get("/", function(req, res) {
+  result = "";
   // Using our Book model, "find" every book in our book db
   Article.find({}, function(error, doc) {
     // Send any errors to the browser
@@ -67,23 +78,17 @@ app.get("/", function(req, res) {
     }
     // Or send the doc to the browser
     else {
-      /// JSON --> HTML????
 
       console.log(doc);
 
-      var result = "";
+
       for(var i = 0; i < doc.length; i++){
         var currentElem = doc[i];
         result += "<h1> " + currentElem.title + "</h1>";
-        result += "<h2>"  + currentElem.coin + "</h2>";
+        // result += "<h2>"  + currentElem.coin + "</h2>";
         result += "<img src='" + currentElem.image+ "'>";
-        result += "<h6>" + currentElem.link + "</h6>";
+        // result += "<h6>" + currentElem.link + "</h6>";
       }
-
-      var htmlToRender = "<h1>First Article</h1>" +
-      "<h2>Bitcoin</h1>" +
-      "<h1>Second Article</h1>" +
-      "<h2>Bitcoin</h1>";
       res.send(result);
     }
   });
@@ -110,15 +115,40 @@ app.post("/submit", function(req, res) {
   });
 });
 
-// making a new route called "/home", which renders my homepage :)
-app.get('/home',function(req,res){
+// app.get('/home', function(request, response){
+//   res.sendFile(, {article: article})
+// });
 
-    // express callback response by calling burger.selectAllBurger
-    Article.find({}, function(error, doc) {
-      
-
-    });
-});
+// app.get('/home',function(req,res){
+//   // Using our Book model, "find" every book in our book db
+//   Article.find({}, function(error, doc) {
+//     // Send any errors to the browser
+//     if (error) {
+//       res.send(error);
+//     }
+//     // Or send the doc to the browser
+//     else {
+//       /// JSON --> HTML????
+//
+//       console.log(doc);
+//
+//       var result = "";
+//       for(var i = 0; i < doc.length; i++){
+//         var currentElem = doc[i];
+//         result += "<h1> " + currentElem.title + "</h1>";
+//         result += "<h2>"  + currentElem.coin + "</h2>";
+//         result += "<img src='" + currentElem.image+ "'>";
+//         result += "<h6>" + currentElem.link + "</h6>";
+//       }
+//
+//       var htmlToRender = "<h1>First Article</h1>" +
+//       "<h2>Bitcoin</h1>" +
+//       "<h1>Second Article</h1>" +
+//       "<h2>Bitcoin</h1>";
+//       res.send(result);
+//     }
+//   });
+// });
 
 
 //assuming app is express Object.
