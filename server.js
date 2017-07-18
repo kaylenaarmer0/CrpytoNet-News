@@ -1,6 +1,3 @@
-
-
-
 // configure the view engine
 app.engine('hbs', hbs.express4({
   defaultLayout: __dirname + '/views/layouts/default.hbs',
@@ -119,36 +116,36 @@ app.post("/submit", function(req, res) {
 //   res.sendFile(, {article: article})
 // });
 
-// app.get('/home',function(req,res){
-//   // Using our Book model, "find" every book in our book db
-//   Article.find({}, function(error, doc) {
-//     // Send any errors to the browser
-//     if (error) {
-//       res.send(error);
-//     }
-//     // Or send the doc to the browser
-//     else {
-//       /// JSON --> HTML????
-//
-//       console.log(doc);
-//
-//       var result = "";
-//       for(var i = 0; i < doc.length; i++){
-//         var currentElem = doc[i];
-//         result += "<h1> " + currentElem.title + "</h1>";
-//         result += "<h2>"  + currentElem.coin + "</h2>";
-//         result += "<img src='" + currentElem.image+ "'>";
-//         result += "<h6>" + currentElem.link + "</h6>";
-//       }
-//
-//       var htmlToRender = "<h1>First Article</h1>" +
-//       "<h2>Bitcoin</h1>" +
-//       "<h1>Second Article</h1>" +
-//       "<h2>Bitcoin</h1>";
-//       res.send(result);
-//     }
-//   });
-// });
+app.get('/home',function(req,res){
+  // Using our Book model, "find" every book in our book db
+  Article.find({}, function(error, doc) {
+    // Send any errors to the browser
+    if (error) {
+      res.send(error);
+    }
+    // Or send the doc to the browser
+    else {
+      /// JSON --> HTML????
+
+      console.log(doc);
+
+      var result = "";
+      for(var i = 0; i < doc.length; i++){
+        var currentElem = doc[i];
+        result += "<h1> " + currentElem.title + "</h1>";
+        result += "<h2>"  + currentElem.coin + "</h2>";
+        result += "<img src='" + currentElem.image+ "'>";
+        result += "<h6>" + currentElem.link + "</h6>";
+      }
+
+      var htmlToRender = "<h1>First Article</h1>" +
+      "<h2>Bitcoin</h1>" +
+      "<h1>Second Article</h1>" +
+      "<h2>Bitcoin</h1>";
+      res.send(result);
+    }
+  });
+});
 
 
 //assuming app is express Object.
