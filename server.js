@@ -1,34 +1,23 @@
-// configure the view engine
-app.engine('hbs', hbs.express4({
-  defaultLayout: __dirname + '/views/layouts/default.hbs',
-  partialsDir: __dirname + '/views/partials',
-  layoutsDir: __dirname + '/views/layouts'
-}));
 
-// configure views path
-app.set('views', path.join(__dirname,'/views'));
-
-// Dependencies
 var express = require("express");
 
-// express-handlebars stuff
 var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 var bodyParser = require("body-parser");
+
 var logger = require("morgan");
-// Our newest addition to the dependency family
+
 var mongoose = require("mongoose");
+
+
+
+
+
+
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
-// And here's where we establish a connection to the collection
-// We bring the model in like any old module
-// Most of the magic with mongoose happens there
-//
-// Example gets saved as a class, so we can create new Example objects
-// and send them as validated, formatted data to our mongoDB collection
+
 var Article = require("./articleModel.js");
 
 // Initialize Express
@@ -59,6 +48,34 @@ db.on("error", function(error) {
 db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
+
+
+
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+app.set('views', path.join(__dirname,'/views'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Routes
@@ -137,6 +154,8 @@ app.get('/home',function(req,res){
         result += "<img src='" + currentElem.image+ "'>";
         result += "<h6>" + currentElem.link + "</h6>";
       }
+
+      res.render("index", {title: doc[0].title, coin: doc[0].coin})
 
       var htmlToRender = "<h1>First Article</h1>" +
       "<h2>Bitcoin</h1>" +
